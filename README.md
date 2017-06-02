@@ -1,6 +1,6 @@
 # Overview
 
-[![Unity](https://store.unity.com/themes/store/images/compare-logo.png)](https://store.unity.com/)
+[![Unity](https://store.unity.com/themes/store/images/compare-logo.png)](https://unity3d.com/)
 > Everything you need to succeed in games and VR/AR
 
 **_Overview_** is a 2D game of sorts, built with [Unity](https://unity3d.com/)!
