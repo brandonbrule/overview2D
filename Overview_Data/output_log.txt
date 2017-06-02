@@ -17,14 +17,14 @@ Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\
 Loading C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.084 seconds
+- Completed reload, in  0.080 seconds
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.917300 ms
+UnloadTime: 2.248658 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: dc8 -> priority: 1 
-  Thread -> id: 1c0c -> priority: 1 
+  Thread -> id: cd4 -> priority: 1 
+  Thread -> id: 1610 -> priority: 1 
