@@ -8,6 +8,13 @@ public class Player : MonoBehaviour {
 
 
 
+    void Attack()
+    {
+
+    }
+
+
+
     void Movement (){
 
         // Move Up (W)
