@@ -8,6 +8,7 @@
 ---
 
 [Web Build](https://brandonbrule.github.io/_Overview/WebBuild/)
+
 ![Walking](http://brandonbrule.com/00/Movement.gif)
 
 ## Setup
