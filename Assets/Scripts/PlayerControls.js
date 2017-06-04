@@ -3,7 +3,7 @@
  
  
  //Inspector Variables
- var playerSpeed : float = 10; //speed player moves
+ var playerSpeed : float = 2; //speed player moves
  var turnSpeed : float = 100; // speed player turns
 
  //var animObj : GameObject = GameObject.Find("/Player/sword"); //set the game object you want to be animated
@@ -32,11 +32,11 @@
  function Run()
  {
 	if(Input.GetKeyDown(KeyCode.LeftShift)){
-		playerSpeed = 40;
+		playerSpeed = 4;
 	}
 
 	if(Input.GetKeyUp(KeyCode.LeftShift)){
-		playerSpeed = 10;
+		playerSpeed = 2;
 	}
  }
  
@@ -60,12 +60,12 @@
  
      if(Input.GetKey("right")) //Right arrow key to turn right
      {
-         transform.Rotate(-Vector3.forward *turnSpeed* Time.deltaTime);
+         transform.Translate(playerSpeed * Time.deltaTime, 0, 0);
      }
  
      if(Input.GetKey("left"))//Left arrow key to turn left
      {
-         transform.Rotate(Vector3.forward *turnSpeed* Time.deltaTime);
+          transform.Translate(-playerSpeed * Time.deltaTime, 0, 0);
      }
  
  }
