@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) //set the key you want to be pressed
         {
 
-            PlayerActiveItem.SetActive(false);
+            //PlayerActiveItem.SetActive(false);
         }
     }
     
