@@ -7,6 +7,8 @@
 
 ---
 
+![Walking](http://brandonbrule.com/00/Movement.gif)
+
 ## Setup
 
 1. Download [Unity](https://store.unity.com/)
