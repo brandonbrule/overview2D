@@ -66,4 +66,15 @@ public class Player : MonoBehaviour {
 	void Update () {
         Movement();
     }
+
+    // Player Has Colided with
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log(other.gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Ouch");
+            //other.gameObject.SetActive(false);
+        }
+    }
 }
