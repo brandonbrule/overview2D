@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour {
     public GameObject Player;
     public GameObject PlayerActiveItem;
 
+
     // Use this for initialization
     void Start () {
 
@@ -13,10 +14,21 @@ public class Attack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        userAttack();
+        
+    }
+
+    void userAttack(){
         if (Input.GetKeyDown(KeyCode.E)) //set the key you want to be pressed
         {
 
-            //PlayerActiveItem.SetActive(false);
+            PlayerActiveItem.SetActive(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.E)) //set the key you want to be pressed
+        {
+
+            PlayerActiveItem.SetActive(false);
         }
     }
     
