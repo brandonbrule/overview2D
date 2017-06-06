@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 	public GameObject EnemyObj;
 	public string direction = "up";
 	public int speed = 1;
+	public int damage = 10;
 	
 
 	// Use this for initialization
@@ -32,19 +33,20 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
     {
-    
-        Debug.Log(other.gameObject);
-        if (other.gameObject.CompareTag("Wall"))
-        {
-        	if(direction.Equals("up")){
+
+    	if(direction.Equals("up")){
         		direction = "down";
         	} else {
         		direction = "up";
         	}
 
-        	Debug.Log(direction);
+    
+        if (other.gameObject.CompareTag("Wall"))
+        {
         	
-            Debug.Log("Wall");
+        	//Debug.Log(direction);
+        	
+            //Debug.Log("Wall");
         }
     }
 }

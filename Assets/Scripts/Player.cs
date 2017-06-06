@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     private Animator animator;
     public float playerSpeed = 2;
+    public float health = 100;
 
 
 
@@ -73,6 +74,7 @@ public class Player : MonoBehaviour {
         //Debug.Log(other.gameObject);
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log(other.gameObject.GetComponent<Enemy>().damage);
             Debug.Log("Ouch");
             //other.gameObject.SetActive(false);
         }

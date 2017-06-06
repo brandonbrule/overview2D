@@ -34,7 +34,7 @@ public class Attack : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
+        //Debug.Log(other);
         if (other.gameObject.CompareTag("Chest"))
         {
             Debug.Log("Cha-Ching");
