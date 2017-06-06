@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 	public GameObject EnemyObj;
 	public string direction = "up";
+	public int speed = 1;
 	
 
 	// Use this for initialization
@@ -20,11 +21,11 @@ public class Enemy : MonoBehaviour {
 	void Move(){
 		//transform.Translate(Vector3.forward * Time.deltaTime);
 		if(direction.Equals("up")){
-        	transform.Translate(Vector3.left * Time.deltaTime, Space.World);
+        	transform.Translate(Vector3.left * (Time.deltaTime * speed), Space.World);
     	}
 
     	if(direction.Equals("down")){
-    		transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+    		transform.Translate(Vector3.right * (Time.deltaTime * speed), Space.World);
     	}
 
 	}
