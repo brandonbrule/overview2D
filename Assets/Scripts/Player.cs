@@ -75,6 +75,15 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Movement();
+
+        if ( Input.GetKey( KeyCode.K ) ){
+            Application.LoadLevel("testroom2");
+        }
+
+        if ( Input.GetKey( KeyCode.L ) ){
+            Application.LoadLevel("overview");
+        }
+
     }
 
     // Player Has Colided with

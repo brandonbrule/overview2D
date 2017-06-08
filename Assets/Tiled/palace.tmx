@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="48" tileheight="48" nextobjectid="4">
+ <properties>
+  <property name="unity:scale" value="0.1"/>
+ </properties>
  <tileset firstgid="1" name="palace" tilewidth="48" tileheight="48" tilecount="40" columns="8">
   <image source="../../_Working/Tiles/palace.png" width="384" height="240"/>
   <tile id="8">

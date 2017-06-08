@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 6/1/2017 8:56:51 PM-->
+<!--Last exported: 6/7/2017 8:57:22 PM-->
 <Tiled2Unity version="1.0.11.2">
   <AssignMaterial mesh="mesh_0001" material="palace" />
-  <Prefab name="palace" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="1" numTilesWide="100" numTilesHigh="100" tileWidth="48" tileHeight="48" exportScale="1" mapWidthInPixels="4800" mapHeightInPixels="4800" backgroundColor="#808080">
+  <Prefab name="palace" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="1" numTilesWide="100" numTilesHigh="100" tileWidth="48" tileHeight="48" exportScale="1" mapWidthInPixels="4800" mapHeightInPixels="4800" backgroundColor="#808080" scale="0.1">
     <GameObject name="Tile Layer 1" x="0" y="0" z="0">
       <TileLayer opacity="1" offsetX="0" offsetY="0" />
       <GameObject name="palace" copy="mesh_0001" sortingLayerName="" sortingOrder="0" opacity="1" />
