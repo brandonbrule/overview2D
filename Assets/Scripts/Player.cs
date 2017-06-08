@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public GameObject HealthUI;
     private Animator animator;
     public float playerSpeed = 2;
     public float health = 100;
@@ -25,11 +26,17 @@ public class Player : MonoBehaviour {
             //animator.SetTrigger(moveUp);
         }
 
+        
+
         // Move Down (S)
         if ( Input.GetKey( KeyCode.S ) ){
             animator.Play("moveDown");
             transform.Translate(0, -playerSpeed * Time.deltaTime, 0);
             //animator.SetTrigger(moveUp);
+        }
+
+        if(Input.GetKeyUp( KeyCode.S ) ){
+            animator.Play("Default");
         }
 
 
@@ -61,6 +68,8 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
+
+        Debug.Log(HealthUI.GetComponent<Canvas>());
     }
 	
 	// Update is called once per frame
