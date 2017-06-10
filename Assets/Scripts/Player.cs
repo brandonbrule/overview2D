@@ -6,7 +6,8 @@ public class Player : MonoBehaviour {
     public GameObject HealthUI;
     private Animator animator;
     public float playerSpeed = 2;
-    public float health = 100;
+    public float health = 10;
+    public GameObject healthScript;
 
 
 
@@ -69,21 +70,12 @@ public class Player : MonoBehaviour {
     void Start () {
         animator = GetComponent<Animator>();
 
-        Debug.Log(HealthUI.GetComponent<Canvas>());
+        Debug.Log(HealthUI);
     }
 	
 	// Update is called once per frame
 	void Update () {
         Movement();
-
-        if ( Input.GetKey( KeyCode.K ) ){
-            Application.LoadLevel("testroom2");
-        }
-
-        if ( Input.GetKey( KeyCode.L ) ){
-            Application.LoadLevel("overview");
-        }
-
     }
 
     // Player Has Colided with
@@ -94,6 +86,8 @@ public class Player : MonoBehaviour {
         {
             Debug.Log(other.gameObject.GetComponent<Enemy>().damage);
             Debug.Log("Ouch");
+
+
             //other.gameObject.SetActive(false);
         }
     }

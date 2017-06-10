@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour {
 	public string WarpTo;
@@ -21,7 +22,7 @@ public class Portal : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Cha-Ching");
-            Application.LoadLevel(WarpTo);
+            SceneManager.LoadScene(WarpTo);
         }
     }
 }

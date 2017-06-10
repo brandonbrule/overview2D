@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour {
 		if(type.Equals("vertical")){
 			direction = "up";
 		}
-		Debug.Log(direction);
 	}
 	
 	// Update is called once per frame
