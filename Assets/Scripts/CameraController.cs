@@ -5,11 +5,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject player;
+    public string test;
 
     private Vector3 offset;
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log(test);
         offset = transform.position - player.transform.position;
 	}
 	

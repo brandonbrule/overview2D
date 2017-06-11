@@ -37,7 +37,6 @@ public class Attack : MonoBehaviour {
         //Debug.Log(other);
         if (other.gameObject.CompareTag("Chest"))
         {
-            Debug.Log("Cha-Ching");
             other.gameObject.SetActive(false);
         }
     }

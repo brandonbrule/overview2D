@@ -7,7 +7,6 @@ public class Player : MonoBehaviour {
     private Animator animator;
     public float playerSpeed = 2;
     public float health = 10;
-    public GameObject healthScript;
 
 
 
@@ -66,29 +65,36 @@ public class Player : MonoBehaviour {
         }
     }
 
+
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
-
-        Debug.Log(HealthUI);
     }
 	
+
 	// Update is called once per frame
 	void Update () {
         Movement();
     }
 
+
     // Player Has Colided with
     void OnTriggerEnter2D(Collider2D other)
     {
+
         //Debug.Log(other.gameObject);
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log(other.gameObject.GetComponent<Enemy>().damage);
-            Debug.Log("Ouch");
-
-
-            //other.gameObject.SetActive(false);
+            int damage = other.gameObject.GetComponent<Enemy>().damage;
+            HealthUI.GetComponent<HealthController>().removeHealth(damage);
         }
+
+        if (other.gameObject.CompareTag("Health"))
+        {
+
+            float health = other.gameObject.GetComponent<HealthPickup>().health;
+            HealthUI.GetComponent<HealthController>().addHealth(health);
+        }
+
     }
 }
