@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
 	public string type = "horizontal";
 	private string direction = "left";
 	public int speed = 1;
-	public int damage = 10;
+	public float damage = 10;
 	
 
 	// Use this for initialization

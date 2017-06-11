@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
         //Debug.Log(other.gameObject);
         if (other.gameObject.CompareTag("Enemy"))
         {
-            int damage = other.gameObject.GetComponent<Enemy>().damage;
+            float damage = other.gameObject.GetComponent<Enemy>().damage;
             HealthUI.GetComponent<HealthController>().removeHealth(damage);
         }
 
