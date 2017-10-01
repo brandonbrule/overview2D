@@ -15,13 +15,11 @@ public class Attack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         userAttack();
-        
     }
 
     void userAttack(){
         if (Input.GetKeyDown(KeyCode.E)) //set the key you want to be pressed
         {
-
             PlayerActiveItem.SetActive(true);
         }
 
@@ -30,6 +28,8 @@ public class Attack : MonoBehaviour {
 
             PlayerActiveItem.SetActive(false);
         }
+
+        
     }
     
     void OnTriggerEnter2D(Collider2D other)
