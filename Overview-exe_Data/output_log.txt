@@ -15,96 +15,22 @@ Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Mana
 Loading C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
-Loading C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
-- Completed reload, in  0.167 seconds
+- Completed reload, in  0.109 seconds
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview-exe_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.016921 ms
+UnloadTime: 2.087153 ms
 Failed to create agent because there is no valid NavMesh
  
 (Filename:  Line: 598)
 
 Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Portal
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cha-Ching
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.730996 ms
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 412.
-Total: 0.315269 ms (FindLiveObjects: 0.025370 ms CreateObjectMapping: 0.034961 ms MarkObjects: 0.201104 ms  DeleteObjects: 0.053524 ms)
-
-Portal
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cha-Ching
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.990980 ms
-Failed to create agent because there is no valid NavMesh
- 
-(Filename:  Line: 598)
-
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 508.
-Total: 0.297634 ms (FindLiveObjects: 0.035579 ms CreateObjectMapping: 0.037436 ms MarkObjects: 0.197701 ms  DeleteObjects: 0.026298 ms)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: c8 -> priority: 1 
-  Thread -> id: 240c -> priority: 1 
+  Thread -> id: 1de0 -> priority: 1 
+  Thread -> id: 1ac8 -> priority: 1 
