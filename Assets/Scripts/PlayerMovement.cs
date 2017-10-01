@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody2D rbody;
 	Animator anim;
-	public float playerSpeed = 1;
+	public float playerSpeed = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            playerSpeed = 1;
+            playerSpeed = 2;
         }
 	}
 	
