@@ -15,42 +15,18 @@ Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\
 Loading C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.101 seconds
+- Completed reload, in  0.064 seconds
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\brand_000\Documents\_Overview\Overview_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.991242 ms
+UnloadTime: 1.918228 ms
 Failed to create agent because there is no valid NavMesh
  
 (Filename:  Line: 598)
 
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Health
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Enemy
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 19a4 -> priority: 1 
-  Thread -> id: 23f0 -> priority: 1 
+  Thread -> id: 1c74 -> priority: 1 
+  Thread -> id: 188c -> priority: 1 

@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rbody;
 	Animator anim;
 	public float playerSpeed = 2;
+	private float originalPlayerSpeed;
 
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		originalPlayerSpeed = playerSpeed;
 	}
 
 	void Run(){
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            playerSpeed = 2;
+            playerSpeed = originalPlayerSpeed;
         }
 	}
 	

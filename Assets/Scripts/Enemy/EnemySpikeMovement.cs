@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-	public GameObject EnemyObj;
+public class EnemySpikeMovement : MonoBehaviour {
+
 	public string type = "horizontal";
 	private string direction = "left";
 	public int speed = 1;
-	public float damage = 10;
 	
 
 	// Use this for initialization
@@ -58,7 +57,6 @@ public class Enemy : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
     {
 
-
     	if(type.Equals("horizontal")){
 			if(direction.Equals("left")){
 				direction = "right";
@@ -75,14 +73,5 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 
-
-    
-        if (other.gameObject.CompareTag("Wall"))
-        {
-        	
-        	//Debug.Log(direction);
-        	
-            //Debug.Log("Wall");
-        }
     }
 }

@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour {
-    public GameObject Player;
+public class PlayerAttack : MonoBehaviour {
     public GameObject PlayerActiveItem;
-
-
-    // Use this for initialization
-    void Start () {
-
-    }
 	
 	// Update is called once per frame
 	void Update () {
