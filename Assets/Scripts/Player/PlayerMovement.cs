@@ -8,12 +8,35 @@ public class PlayerMovement : MonoBehaviour {
 	Animator anim;
 	public float playerSpeed = 2;
 	private float originalPlayerSpeed;
+	public char direction;
+	private GameObject PlayerState;
 
 	// Use this for initialization
 	void Start () {
+		PlayerState = GameObject.Find("Player/PlayerStateManager");
 		rbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		originalPlayerSpeed = playerSpeed;
+	}
+
+	void setDirection(float x, float y){
+		char newDirection = 'a';
+		if(x == -1 && y == 0){
+			newDirection = 'e';
+		} else if(x == 1 && y == 0){
+			newDirection = 'w';
+		} else if(x == 0 && y == 1){
+			newDirection = 'n';
+		} else {
+			newDirection = 's';
+		}
+		
+		if(newDirection != direction){
+			direction = newDirection;
+			PlayerState.GetComponent<PlayerState>().updateDirection(direction);
+		}
+
+		
 	}
 
 	void Run(){
@@ -27,6 +50,20 @@ public class PlayerMovement : MonoBehaviour {
         {
             playerSpeed = originalPlayerSpeed;
         }
+
+
+         if (Input.GetKeyDown(KeyCode.E)) //set the key you want to be pressed
+        {
+            anim.SetBool("isattacking", true);
+        }
+
+         if (Input.GetKeyUp(KeyCode.E)) //set the key you want to be pressed
+        {
+
+            anim.SetBool("isattacking", false);
+        }
+
+
 	}
 	
 	// Update is called once per frame
@@ -38,12 +75,14 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool("iswalking", true);
 			anim.SetFloat("input_x", movement_vector.x);
 			anim.SetFloat("input_y", movement_vector.y);
+			Run();
+			setDirection(movement_vector.x, movement_vector.y);
 		} else {
 			anim.SetBool("iswalking", false);
 		}
 
 
-		Run();
+		
 
 		rbody.MovePosition (rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );
 	}

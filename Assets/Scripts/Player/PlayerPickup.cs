@@ -14,14 +14,8 @@ public class PlayerPickup : MonoBehaviour {
 	void Start () {
 		UIContainerHealth = GameObject.Find("UI/HealthContainer");
 		UIContainerGems = GameObject.Find("UI/GemsContainer");
-		PlayerState = GameObject.Find("Player/PlayerManager");
+		PlayerState = GameObject.Find("Player/PlayerStateManager");
 		UIController = GameObject.Find("UI");
-	}
-
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	// Remove Heart on Collide with Player

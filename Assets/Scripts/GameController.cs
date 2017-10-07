@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
 	public int MaxHealth = 5;
 	public int Gems;
 	public int MaxGems = 50;
+	public char PlayerDirection;
 
 
 	// Use this for initialization

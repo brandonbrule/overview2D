@@ -20,6 +20,10 @@ public class PlayerState : MonoBehaviour {
 		MaxGems = GameController.GetComponent<GameController>().MaxGems;
 	}
 
+	public void updateDirection(char direction){
+		GameController.GetComponent<GameController>().PlayerDirection = direction;
+	}
+
 	public void add(int Worth, string Type){
 
 		if(Type == "Gems")
