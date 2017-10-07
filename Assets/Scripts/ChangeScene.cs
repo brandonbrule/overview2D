@@ -7,7 +7,7 @@ public class ChangeScene : MonoBehaviour {
 	public string WarpTo;
 	public char EnterFromDirection = 'a';
 	private char PlayerDirection;
-	private bool StartOnSceneChange = false;
+	public bool StartOnSceneChange = false;
 	private GameObject GameController;
 
 	// Use this for initialization
