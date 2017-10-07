@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 	public int Gems;
 	public int MaxGems = 50;
 	public char PlayerDirection;
+	public string ActiveScene;
 
 
 	// Use this for initialization

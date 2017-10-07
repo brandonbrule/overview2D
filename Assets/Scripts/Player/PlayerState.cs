@@ -18,6 +18,9 @@ public class PlayerState : MonoBehaviour {
 		MaxHealth = GameController.GetComponent<GameController>().MaxHealth;
 		Gems = GameController.GetComponent<GameController>().Gems;
 		MaxGems = GameController.GetComponent<GameController>().MaxGems;
+
+		Scene scene = SceneManager.GetActiveScene();
+		GameController.GetComponent<GameController>().ActiveScene = scene.name;
 	}
 
 	public void updateDirection(char direction){

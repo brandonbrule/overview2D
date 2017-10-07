@@ -3,37 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
+	private GameObject PlayerStateManager;
+	private GameObject GameController;
 	Rigidbody2D rbody;
 	Animator anim;
 	public float playerSpeed = 2;
 	private float originalPlayerSpeed;
 	public char direction;
-	private GameObject PlayerState;
+
 
 	// Use this for initialization
 	void Start () {
-		PlayerState = GameObject.Find("Player/PlayerStateManager");
+		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
+		GameController = GameObject.Find("GameController");
 		rbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		originalPlayerSpeed = playerSpeed;
+		direction = GameController.GetComponent<GameController>().PlayerDirection;
+		
+		// Set Player Direction on Scene Load
+		// East
+		if (direction == 'e'){
+			anim.SetFloat("input_x", -1);
+			anim.SetFloat("input_y", 0);
+		
+		// West
+		} else if (direction == 'w'){
+			anim.SetFloat("input_x", 1);
+			anim.SetFloat("input_y", 0);
+		
+		// North
+		} else if (direction == 'n'){
+			anim.SetFloat("input_x", 0);
+			anim.SetFloat("input_y", 1);
+		
+		// South
+		} else {
+			anim.SetFloat("input_x", 0);
+			anim.SetFloat("input_y", -1);
+		}
+		
 	}
 
 	void setDirection(float x, float y){
 		char newDirection = 'a';
+
+		// East
 		if(x == -1 && y == 0){
 			newDirection = 'e';
+
+		// West
 		} else if(x == 1 && y == 0){
 			newDirection = 'w';
+
+		// North
 		} else if(x == 0 && y == 1){
 			newDirection = 'n';
+
+		// South
 		} else {
 			newDirection = 's';
 		}
 		
+		// Update State Direction If Changed
 		if(newDirection != direction){
 			direction = newDirection;
-			PlayerState.GetComponent<PlayerState>().updateDirection(direction);
+			PlayerStateManager.GetComponent<PlayerState>().updateDirection(direction);
 		}
 
 		
@@ -50,19 +85,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             playerSpeed = originalPlayerSpeed;
         }
-
-
-         if (Input.GetKeyDown(KeyCode.E)) //set the key you want to be pressed
-        {
-            anim.SetBool("isattacking", true);
-        }
-
-         if (Input.GetKeyUp(KeyCode.E)) //set the key you want to be pressed
-        {
-
-            anim.SetBool("isattacking", false);
-        }
-
 
 	}
 	

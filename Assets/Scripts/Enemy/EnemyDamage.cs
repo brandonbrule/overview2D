@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour {
 	public int damage = 1;
     public bool destroyable;
-	private GameObject PlayerManager;
+	private GameObject PlayerStateManager;
     private GameObject UIController;
 
 
 	// Use this for initialization
 	void Start () {
-		PlayerManager = GameObject.Find("Player/PlayerManager");
+		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
 		UIController = GameObject.Find("UI");
 	}
 	
@@ -21,7 +21,7 @@ public class EnemyDamage : MonoBehaviour {
 
 
         if( other.gameObject.CompareTag("Player")){
-            PlayerManager.GetComponent<PlayerState>().remove(damage, "Health");
+            PlayerStateManager.GetComponent<PlayerState>().remove(damage, "Health");
             UIController.GetComponent<UIController>().updateDisplay("Health");
         }
 
@@ -32,7 +32,7 @@ public class EnemyDamage : MonoBehaviour {
             if(destroyable == true){
                 Destroy(this.gameObject);
             }
-            Debug.Log(other.gameObject);
+            //Debug.Log(other.gameObject);
             //Destroy(this.gameObject);
         }
 

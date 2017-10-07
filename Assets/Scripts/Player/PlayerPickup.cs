@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPickup : MonoBehaviour {
 	private GameObject UIContainerHealth;
 	private GameObject UIContainerGems;
-	private GameObject PlayerState;
+	private GameObject PlayerStateManager;
 	private GameObject UIController;
 
 	public int Worth;
@@ -14,7 +14,7 @@ public class PlayerPickup : MonoBehaviour {
 	void Start () {
 		UIContainerHealth = GameObject.Find("UI/HealthContainer");
 		UIContainerGems = GameObject.Find("UI/GemsContainer");
-		PlayerState = GameObject.Find("Player/PlayerStateManager");
+		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
 		UIController = GameObject.Find("UI");
 	}
 
@@ -29,13 +29,13 @@ public class PlayerPickup : MonoBehaviour {
 
         	if (gameObject.CompareTag("Health"))
 	        {
-	        	PlayerState.GetComponent<PlayerState>().add(Worth, "Health");
+	        	PlayerStateManager.GetComponent<PlayerState>().add(Worth, "Health");
             	UIController.GetComponent<UIController>().updateDisplay("Health");
 	        }
 
 	        if (gameObject.CompareTag("Gems"))
 	        {
-	    		PlayerState.GetComponent<PlayerState>().add(Worth, "Gems");
+	    		PlayerStateManager.GetComponent<PlayerState>().add(Worth, "Gems");
 	    		UIController.GetComponent<UIController>().updateDisplay("Gems");
 	        }
 
