@@ -20,7 +20,7 @@ public class PlayerState : MonoBehaviour {
 		MaxGems = GameController.GetComponent<GameController>().MaxGems;
 
 		Scene scene = SceneManager.GetActiveScene();
-		GameController.GetComponent<GameController>().ActiveScene = scene.name;
+		GameController.GetComponent<GameController>().SceneName = scene.name;
 	}
 
 	public void updateDirection(char direction){

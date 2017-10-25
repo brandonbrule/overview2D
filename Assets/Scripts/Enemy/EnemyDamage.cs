@@ -32,18 +32,13 @@ public class EnemyDamage : MonoBehaviour {
             if(destroyable == true){
                 Destroy(this.gameObject);
             }
-            //Debug.Log(other.gameObject);
-            //Destroy(this.gameObject);
         }
 
 
     
         if (other.gameObject.CompareTag("Wall"))
         {
-            
-            //Debug.Log(direction);
-            
-            //Debug.Log("Wall");
+
         }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour {
-	public string WarpTo;
+	public string SceneName;
+	public string SceneLocation;
 	public char EnterFromDirection = 'a';
 	private char PlayerDirection;
 	public bool StartOnSceneChange = false;
@@ -27,8 +28,10 @@ public class ChangeScene : MonoBehaviour {
         if (other.gameObject.CompareTag("Player") && StartOnSceneChange == false)
         {
         	PlayerDirection = GameController.GetComponent<GameController>().PlayerDirection;
+        	GameController.GetComponent<GameController>().SceneName = SceneName;
+        	GameController.GetComponent<GameController>().SceneLocation = SceneLocation;
         	if(EnterFromDirection == 'a' || EnterFromDirection == PlayerDirection){
-            	SceneManager.LoadScene(WarpTo);
+            	SceneManager.LoadScene(SceneName);
         	}
         }
     }

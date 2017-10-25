@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
     public GameObject PlayerActiveItem;
+    private SpriteRenderer sprite;
     private GameObject GameController;
     private char direction;
     Animator anim;
@@ -12,7 +13,7 @@ public class PlayerAttack : MonoBehaviour {
         GameController = GameObject.Find("GameController");
         anim = GetComponent<Animator>();
         direction = GameController.GetComponent<GameController>().PlayerDirection;
-
+        sprite = PlayerActiveItem.GetComponent<SpriteRenderer>();
 
          
 
@@ -25,34 +26,40 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     void userAttack(){
-        if (Input.GetKeyDown(KeyCode.Space)) //set the key you want to be pressed
-        { 
+
+        if (Input.GetKeyDown(KeyCode.Space)){
             anim.SetBool("isattacking", true);
-            PlayerActiveItem.SetActive(true);
         }
 
-        if (Input.GetKeyUp(KeyCode.Space)) //set the key you want to be pressed
-        {
+        // If Attack is Held
+        if (Input.GetKey(KeyCode.Space))
+        { 
+            direction = GameController.GetComponent<GameController>().PlayerDirection;
+            // Sword in front of you when facing down.
+            if(direction == 's'){
+                sprite.sortingOrder = 3;
+            } else if( direction == '-'){
+                sprite.sortingOrder = -1;
+            } else {
+                sprite.sortingOrder = 1;
+            }
 
-Debug.Log(PlayerActiveItem.transform.position);
-PlayerActiveItem.transform.position = new Vector3(17.0f, 7.0f, 7.0f);
-Debug.Log(PlayerActiveItem.transform.position);
-PlayerActiveItem.transform.Rotate(0,45,0);
-
-
+        // If Attack is Released.    
+        } else {
             PlayerActiveItem.SetActive(false);
             anim.SetBool("isattacking", false);
         }
-
         
     }
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(other);
         if (other.gameObject.CompareTag("Chest"))
         {
             other.gameObject.SetActive(false);
         }
+
+        // Retract Attack when with any collission for now.
+        anim.SetBool("isattacking", false);
     }
 }

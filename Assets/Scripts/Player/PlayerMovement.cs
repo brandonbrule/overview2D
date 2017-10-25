@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour {
 	void setDirection(float x, float y){
 		char newDirection = 'a';
 
+		
+
 		// East
 		if(x == -1 && y == 0){
 			newDirection = 'e';
@@ -61,9 +63,12 @@ public class PlayerMovement : MonoBehaviour {
 			newDirection = 'n';
 
 		// South
-		} else {
+		} else if(x == 0 && y == -1){
 			newDirection = 's';
+		} else {
+			newDirection = '-';
 		}
+
 		
 		// Update State Direction If Changed
 		if(newDirection != direction){
@@ -76,16 +81,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Run(){
 		// Run (Shift)
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             playerSpeed = 3;
+        } else {
+        	playerSpeed = originalPlayerSpeed;
         }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            playerSpeed = originalPlayerSpeed;
-        }
-
 	}
 	
 	// Update is called once per frame
@@ -103,9 +104,7 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool("iswalking", false);
 		}
 
-
-		
-
 		rbody.MovePosition (rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );
+		
 	}
 }
