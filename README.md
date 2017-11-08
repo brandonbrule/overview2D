@@ -7,7 +7,7 @@
 
 ---
 
-[Web Build](https://brandonbrule.github.io/_Overview/WebBuild/)
+[Web Build](http://brandonbrule.com/00/overview/03)
 
 ![Walking](http://brandonbrule.com/00/Movement.gif)
 
