@@ -60,6 +60,11 @@ public class PlayerAttack : MonoBehaviour {
         }
 
         // Retract Attack when with any collission for now.
-        anim.SetBool("isattacking", false);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            PlayerActiveItem.SetActive(false);
+            anim.SetBool("isattacking", false);
+        }
+            
     }
 }

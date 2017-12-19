@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
-	private GameObject UIContainerHealth;
-	private GameObject UIContainerGems;
 	private GameObject GameController;
 	public Text UITextHealth;
 	public Text UITextGems;
@@ -39,11 +37,7 @@ public class UIController : MonoBehaviour {
 	void Start () {
 		GameController = GameObject.Find("GameController");
 
-		UIContainerHealth = GameObject.Find("UI/HealthContainer");
 		updateDisplay("Health");
-
-
-		UIContainerGems = GameObject.Find("UI/GemsContainer");
 		updateDisplay("Gems");
 		
 	}

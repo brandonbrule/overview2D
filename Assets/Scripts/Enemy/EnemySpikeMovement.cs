@@ -21,7 +21,7 @@ public class EnemySpikeMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {
 		if(type.Equals("horizontal")){
 			moveHorizontal();
 		}

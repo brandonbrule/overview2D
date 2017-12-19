@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	private GameObject GameController;
 	Rigidbody2D rbody;
 	Animator anim;
-	public float playerSpeed = 2;
+	public float playerSpeed = 1f;
 	private float originalPlayerSpeed;
 	public char direction;
 
@@ -83,14 +83,14 @@ public class PlayerMovement : MonoBehaviour {
 		// Run (Shift)
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            playerSpeed = 3;
+            playerSpeed = 2;
         } else {
         	playerSpeed = originalPlayerSpeed;
         }
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {
 		Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
 		if (movement_vector != Vector2.zero){
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool("iswalking", false);
 		}
 
-		rbody.MovePosition (rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );
+		rbody.MovePosition(rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );
 		
 	}
 }

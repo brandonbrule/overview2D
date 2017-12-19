@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour {
-	private GameObject UIContainerHealth;
-	private GameObject UIContainerGems;
 	private GameObject PlayerStateManager;
 	private GameObject UIController;
 
@@ -12,8 +10,6 @@ public class PlayerPickup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		UIContainerHealth = GameObject.Find("UI/HealthContainer");
-		UIContainerGems = GameObject.Find("UI/GemsContainer");
 		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
 		UIController = GameObject.Find("UI");
 	}

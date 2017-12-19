@@ -8,12 +8,10 @@ public class ChangeScene : MonoBehaviour {
 	public string SceneLocation;
 	public char EnterFromDirection = 'a';
 	private char PlayerDirection;
-	public bool StartOnSceneChange = false;
 	private GameObject GameController;
 
 	// Use this for initialization
 	void Start () {
-		StartOnSceneChange = true;
 		GameController = GameObject.Find("GameController");
 		PlayerDirection = GameController.GetComponent<GameController>().PlayerDirection;
 	}
@@ -25,7 +23,7 @@ public class ChangeScene : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && StartOnSceneChange == false)
+        if (other.gameObject.CompareTag("Player"))
         {
         	PlayerDirection = GameController.GetComponent<GameController>().PlayerDirection;
         	GameController.GetComponent<GameController>().SceneName = SceneName;
@@ -38,6 +36,6 @@ public class ChangeScene : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        StartOnSceneChange = false;
+
     }
 }
