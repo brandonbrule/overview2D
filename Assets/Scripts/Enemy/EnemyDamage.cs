@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
 	public int damage = 1;
-    public bool destroyable;
 	private GameObject PlayerStateManager;
     private GameObject UIController;
 
@@ -26,13 +25,6 @@ public class EnemyDamage : MonoBehaviour {
         }
 
 
-
-        if (other.gameObject.CompareTag("ActiveItem"))
-        {
-            if(destroyable == true){
-                Destroy(this.gameObject);
-            }
-        }
 
 
     

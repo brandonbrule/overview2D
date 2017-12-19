@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpikeMovement : MonoBehaviour {
-
 	public string type = "horizontal";
 	private string direction = "left";
 	public int speed = 1;
