@@ -71,7 +71,7 @@ public class MoveRandomly : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if ( !gameObject.CompareTag("Health") || !gameObject.CompareTag("Gems"))
+        if (other.tag != "Health" && other.tag != "Gems" )
         {
         
             if (direction == 1)
