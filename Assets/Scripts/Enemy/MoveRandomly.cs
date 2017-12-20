@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveRandomly : MonoBehaviour{
-    Animator anim;
     private int direction;
     public float speed;
     public float timeBetween = 3.0f;
@@ -13,8 +12,8 @@ public class MoveRandomly : MonoBehaviour{
     void Start()
     {
         direction = Random.Range(1, 6);
-        anim = GetComponent<Animator>();
         originalTimeBetween = timeBetween;
+        this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
     }
 
     // Update is called once per frame
@@ -30,29 +29,21 @@ public class MoveRandomly : MonoBehaviour{
         if (direction == 1)
         {
             transform.Translate(Vector3.up * (Time.deltaTime * speed), Space.World);
-            anim.SetFloat("input_x", 0);
-            anim.SetFloat("input_y", 1);
         }
 
         else if (direction == 2)
         {
             transform.Translate(Vector3.left * (Time.deltaTime * speed), Space.World);
-            anim.SetFloat("input_x", -1);
-            anim.SetFloat("input_y", 0);
         }
 
         else if (direction == 3)
         {
             transform.Translate(Vector3.down * (Time.deltaTime * speed), Space.World);
-            anim.SetFloat("input_x", 0);
-            anim.SetFloat("input_y", -1);
         }
 
         else if (direction == 4)
         {
             transform.Translate(Vector3.right * (Time.deltaTime * speed), Space.World);
-            anim.SetFloat("input_x", 1);
-            anim.SetFloat("input_y", 0);
         }
         else
         {
@@ -66,6 +57,7 @@ public class MoveRandomly : MonoBehaviour{
     private void ChangeDirection()
     {
         direction = Random.Range(1, 6);
+        this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -96,6 +88,8 @@ public class MoveRandomly : MonoBehaviour{
             {
 
             }
+
+            this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
         }
     }
 }
