@@ -11,7 +11,6 @@ public class MoveTowards : MonoBehaviour {
     // Use this for initialization
     void Start () {
         move = true;
-
     }
 
 	
@@ -64,7 +63,7 @@ public class MoveTowards : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "Player" || other.tag == "Enemy")
+        if (other.tag == "Player" )
         {
             move = false;
         }
