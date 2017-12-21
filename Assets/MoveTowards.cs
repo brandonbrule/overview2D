@@ -5,16 +5,32 @@ using UnityEngine;
 public class MoveTowards : MonoBehaviour {
     public Transform target;
     public float speed = 1f;
+    private int direction = 0;
 
     private bool move;
 
     // Use this for initialization
     void Start () {
         move = true;
+
+        // Face Direction on Start.
+        // Only Up or Down from Target
+        if(target.position.y > transform.position.y)
+        {
+            direction = 1;
+        }
+
+        if (target.position.y < transform.position.y)
+        {
+            direction = 3;
+        }
     }
 
 	
-	// Update is called once per frame
+	// Decides if the target is left or right, top or bottom of object
+    // Changes the direction accordingly
+    // Rounded values are for lining up planes more accurately.
+    // .1234 != .1235 but 1 == 1 Looks left right up or down.
 	void FixedUpdate() {
         if (move)
         {
@@ -25,7 +41,7 @@ public class MoveTowards : MonoBehaviour {
             float transform_y = Mathf.Round(transform.position.y);
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
-            int direction = 0;
+            
             if (target_x == transform_x && target.position.y > transform.position.y)
             {
                 direction = 1;
@@ -55,6 +71,8 @@ public class MoveTowards : MonoBehaviour {
 
     }
 
+    // If you collide into specific things 
+    // Stop moving for a moment
     void ActivateMove()
     {
         move = true;
@@ -63,7 +81,7 @@ public class MoveTowards : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "Player" )
+        if (other.tag == "Player" || other.tag == "Enemy")
         {
             move = false;
         }

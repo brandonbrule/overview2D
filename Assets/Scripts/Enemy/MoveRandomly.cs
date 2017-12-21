@@ -7,8 +7,8 @@ public class MoveRandomly : MonoBehaviour{
     public float speed;
     public float timeBetween = 3.0f;
     private float originalTimeBetween;
+    private bool setFirstDirection = true;
 
-    // Use this for initialization
     void Start()
     {
         direction = Random.Range(1, 6);
@@ -16,7 +16,6 @@ public class MoveRandomly : MonoBehaviour{
         this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         timeBetween -= Time.deltaTime;
@@ -50,8 +49,18 @@ public class MoveRandomly : MonoBehaviour{
 
         }
 
-    }
+        // Set the animation direction
+        // On first direction change
+        if (setFirstDirection)
+        {
+            this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
+        }
+        // Dont do this again,
+        // Only on changeDirection
+        // Which has timer
+        setFirstDirection = false;
 
+    }
 
 
     private void ChangeDirection()
@@ -63,6 +72,8 @@ public class MoveRandomly : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        // Turn Around if collides into other objects.
+        // Walk over Health and Gems
         if (other.tag != "Health" && other.tag != "Gems" )
         {
         
