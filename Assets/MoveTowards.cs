@@ -6,12 +6,10 @@ public class MoveTowards : MonoBehaviour {
     public Transform target;
     public float speed = 1f;
     private int direction = 0;
-
-    private bool move;
+    public bool move = false;
 
     // Use this for initialization
     void Start () {
-        move = true;
 
         // Face Direction on Start.
         // Only Up or Down from Target
@@ -73,9 +71,14 @@ public class MoveTowards : MonoBehaviour {
 
     // If you collide into specific things 
     // Stop moving for a moment
-    void ActivateMove()
+    public void ActivateMove()
     {
         move = true;
+    }
+
+    public void DectivateMove()
+    {
+        move = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -90,7 +93,7 @@ public class MoveTowards : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.tag == "Player" || other.tag == "Enemy")
+        if (other.tag == "Player")
         {
             Invoke("ActivateMove", 0.25f);
         }

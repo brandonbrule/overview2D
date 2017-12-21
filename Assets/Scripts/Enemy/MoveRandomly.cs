@@ -8,6 +8,7 @@ public class MoveRandomly : MonoBehaviour{
     public float timeBetween = 3.0f;
     private float originalTimeBetween;
     private bool setFirstDirection = true;
+    private bool move = true;
 
     void Start()
     {
@@ -16,37 +17,52 @@ public class MoveRandomly : MonoBehaviour{
         this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
     }
 
+    // If you collide into specific things 
+    // Stop moving for a moment
+    public void ActivateMove()
+    {
+        move = true;
+    }
+
+    public void DectivateMove()
+    {
+        move = false;
+    }
+
     void FixedUpdate()
     {
-        timeBetween -= Time.deltaTime;
-        if (timeBetween <= 0.0f)
+        if (move)
         {
+            timeBetween -= Time.deltaTime;
+            if (timeBetween <= 0.0f)
+            {
 
-            ChangeDirection();
-            timeBetween = originalTimeBetween;
-        }
-        if (direction == 1)
-        {
-            transform.Translate(Vector3.up * (Time.deltaTime * speed), Space.World);
-        }
+                ChangeDirection();
+                timeBetween = originalTimeBetween;
+            }
+            if (direction == 1)
+            {
+                transform.Translate(Vector3.up * (Time.deltaTime * speed), Space.World);
+            }
 
-        else if (direction == 2)
-        {
-            transform.Translate(Vector3.left * (Time.deltaTime * speed), Space.World);
-        }
+            else if (direction == 2)
+            {
+                transform.Translate(Vector3.left * (Time.deltaTime * speed), Space.World);
+            }
 
-        else if (direction == 3)
-        {
-            transform.Translate(Vector3.down * (Time.deltaTime * speed), Space.World);
-        }
+            else if (direction == 3)
+            {
+                transform.Translate(Vector3.down * (Time.deltaTime * speed), Space.World);
+            }
 
-        else if (direction == 4)
-        {
-            transform.Translate(Vector3.right * (Time.deltaTime * speed), Space.World);
-        }
-        else
-        {
+            else if (direction == 4)
+            {
+                transform.Translate(Vector3.right * (Time.deltaTime * speed), Space.World);
+            }
+            else
+            {
 
+            }
         }
 
         // Set the animation direction
