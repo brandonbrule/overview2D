@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
 	public int damage = 1;
+    public int pushback = 0;
 	private GameObject PlayerStateManager;
     private GameObject UIController;
 
@@ -22,7 +23,13 @@ public class EnemyDamage : MonoBehaviour {
         if( other.gameObject.CompareTag("Player")){
             PlayerStateManager.GetComponent<PlayerState>().remove(damage, "Health");
             UIController.GetComponent<UIController>().updateDisplay("Health");
+
+            var force = transform.position - other.transform.position;
+            force.Normalize();
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(-force * pushback);
         }
+
+
 
 
 
