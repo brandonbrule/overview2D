@@ -17,7 +17,7 @@ public class EnemyVision : MonoBehaviour
 
             if (other.gameObject.GetComponent<MoveRandomly>())
             {
-                other.gameObject.GetComponent<MoveRandomly>().DectivateMove();
+                //other.gameObject.GetComponent<MoveRandomly>().DectivateMove();
             }
 
         }
@@ -37,6 +37,8 @@ public class EnemyVision : MonoBehaviour
             {
                 other.gameObject.GetComponent<MoveRandomly>().ActivateMove();
             }
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            other.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
         }
     }
 }

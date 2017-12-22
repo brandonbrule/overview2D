@@ -65,6 +65,11 @@ public class MoveTowards : MonoBehaviour {
 
             this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
 
+            if (this.gameObject.GetComponent<MoveRandomly>())
+            {
+                this.gameObject.GetComponent<MoveRandomly>().DectivateMove();
+            }
+
         }
 
     }
