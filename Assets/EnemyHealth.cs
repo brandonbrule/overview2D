@@ -21,7 +21,6 @@ public class EnemyHealth : MonoBehaviour {
     void isAttacked()
     {
         health = health - damageTaken;
-        
 
         if (destroyable == true && health <= 0)
         {   
