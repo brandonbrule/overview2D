@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
-    public bool destroyable;
+    public bool destroyable = true;
+    public int health;
+    private int damageTaken;
+    private bool pushed_back = false;
 
     // Use this for initialization
     void Start () {
@@ -15,15 +18,55 @@ public class EnemyHealth : MonoBehaviour {
 		
 	}
 
+    void isAttacked()
+    {
+        health = health - damageTaken;
+        
+
+        if (destroyable == true && health <= 0)
+        {   
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void resetPushBack()
+    {
+        pushed_back = false;
+        
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
+
+
+        if (this.gameObject.GetComponent<MoveTowards>())
+        {
+            this.gameObject.GetComponent<MoveTowards>().ActivateMove();
+        }
+        
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("ActiveItem"))
         {
-            if (destroyable == true)
+            damageTaken = other.gameObject.GetComponent<ActiveItemDamage>().damage;
+            isAttacked();
+            pushed_back = true;
+
+            if (pushed_back)
             {
-                Destroy(this.gameObject);
+                var force = transform.position - other.transform.position;
+                force.Normalize();
+
+                if (this.gameObject.GetComponent<MoveTowards>())
+                {
+                    this.gameObject.GetComponent<MoveTowards>().DectivateMove();
+                }
+
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(force * 100);
+                Invoke("resetPushBack", 0.25f);
             }
+
         }
 
     }
