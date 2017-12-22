@@ -8,7 +8,7 @@ public class MoveRandomly : MonoBehaviour{
     public float timeBetween = 3.0f;
     private float originalTimeBetween;
     private bool setFirstDirection = true;
-    private bool move = true;
+    public bool isMoving = true;
 
     void Start()
     {
@@ -21,17 +21,17 @@ public class MoveRandomly : MonoBehaviour{
     // Stop moving for a moment
     public void ActivateMove()
     {
-        move = true;
+        isMoving = true;
     }
 
     public void DectivateMove()
     {
-        move = false;
+        isMoving = false;
     }
 
     void FixedUpdate()
     {
-        if (move)
+        if (isMoving)
         {
             timeBetween -= Time.deltaTime;
             if (timeBetween <= 0.0f)

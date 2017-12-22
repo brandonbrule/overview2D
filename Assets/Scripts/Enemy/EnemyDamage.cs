@@ -29,15 +29,5 @@ public class EnemyDamage : MonoBehaviour {
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(-force * pushback);
         }
 
-
-
-
-
-
-    
-        if (other.gameObject.CompareTag("Wall"))
-        {
-
-        }
     }
 }
