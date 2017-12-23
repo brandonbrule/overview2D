@@ -35,8 +35,11 @@ public class EnemyHealth : MonoBehaviour
     {
         pushed_back = false;
 
-        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
+
+        if (this.gameObject.GetComponent<Rigidbody2D>()) { 
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        }
 
 
         if (this.gameObject.GetComponent<MoveTowards>())
@@ -65,7 +68,10 @@ public class EnemyHealth : MonoBehaviour
                     this.gameObject.GetComponent<MoveTowards>().DectivateMove();
                 }
 
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(force * 100);
+                if (this.gameObject.GetComponent<Rigidbody2D>())
+                {
+                    this.gameObject.GetComponent<Rigidbody2D>().AddForce(force * 100);
+                }
                 Invoke("resetPushBack", 0.25f);
             }
 
