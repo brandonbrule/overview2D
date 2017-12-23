@@ -7,6 +7,7 @@ public class MoveTowards : MonoBehaviour {
     public float speed = 1f;
     private int direction = 0;
     public bool move = false;
+    public bool always_follow = false;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,10 @@ public class MoveTowards : MonoBehaviour {
     // Rounded values are for lining up planes more accurately.
     // .1234 != .1235 but 1 == 1 Looks left right up or down.
 	void FixedUpdate() {
+        if (always_follow)
+        {
+            move = true;
+        }
         if (move)
         {
             float step = speed * Time.deltaTime;
@@ -39,31 +44,36 @@ public class MoveTowards : MonoBehaviour {
             float transform_y = Mathf.Round(transform.position.y);
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
-            
-            if (target_x == transform_x && target.position.y > transform.position.y)
-            {
-                direction = 1;
 
-            }
-            else if (target_x == transform_x && target.position.y < transform.position.y)
+            if (this.gameObject.GetComponent<AnimationDirection>())
             {
-                direction = 3;
 
-            }
-            else if (target.position.x > transform.position.x && target_y == transform_y)
-            {
-                direction = 4;
+                if (target_x == transform_x && target.position.y > transform.position.y)
+                {
+                    direction = 1;
+
+                }
+                else if (target_x == transform_x && target.position.y < transform.position.y)
+                {
+                    direction = 3;
+
+                }
+                else if (target.position.x > transform.position.x && target_y == transform_y)
+                {
+                    direction = 4;
                 
-            }
-            else if (target.position.x < transform.position.x && target_y == transform_y)
-            {
-                direction = 2;
-            } else
-            {
+                }
+                else if (target.position.x < transform.position.x && target_y == transform_y)
+                {
+                    direction = 2;
+                } else
+                {
 
+                }
+            
+                this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
             }
-
-            this.gameObject.GetComponent<AnimationDirection>().setAnimationDirection(direction);
+            
 
             if (this.gameObject.GetComponent<MoveRandomly>())
             {
