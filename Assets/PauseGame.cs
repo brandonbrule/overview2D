@@ -12,6 +12,9 @@ public class PauseGame : MonoBehaviour {
         if (isPaused)
         {
             Time.timeScale = 0F;
+        } else
+        {
+            screen.SetActive(false);
         }
     }
 
