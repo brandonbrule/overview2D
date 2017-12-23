@@ -7,7 +7,7 @@
 
 ---
 
-[Web Build](http://brandonbrule.com/00/overview/WebBuild)
+[Website and Playable State](http://brandonbrule.com/overview.html)
 
 ![Walking](http://brandonbrule.com/00/Movement.gif)
 
