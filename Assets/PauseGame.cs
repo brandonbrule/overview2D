@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour {
     public bool isPaused = false;
+    public GameObject screen;
 
     // Use this for initialization
     void Start()
@@ -25,12 +26,15 @@ public class PauseGame : MonoBehaviour {
                 Time.timeScale = 1.0F;
                 Time.fixedDeltaTime = 0.02F * Time.timeScale;
                 isPaused = false;
-                
+                screen.SetActive(false);
+
+
             }
             else
             {
                 Time.timeScale = 0F;
                 isPaused = true;
+                screen.SetActive(true);
             }
                 
         }

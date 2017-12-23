@@ -7,7 +7,7 @@
 
 ---
 
-[Website and Playable State](http://brandonbrule.com/overview.html)
+[Website and Playable State](http://brandonbrule.com/overview/)
 
 ![Walking](http://brandonbrule.com/00/Movement.gif)
 
