@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour {
 	private GameObject PlayerStateManager;
+    private GameObject SoundController;
 	private GameObject UIController;
 
 	public int Worth;
@@ -11,8 +12,9 @@ public class PlayerPickup : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
-		UIController = GameObject.Find("UI");
-	}
+        SoundController = GameObject.Find("SoundController");
+        UIController = GameObject.Find("UI");
+    }
 
 	// Remove Heart on Collide with Player
     void OnTriggerEnter2D(Collider2D other)
@@ -22,8 +24,11 @@ public class PlayerPickup : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
         	Worth = gameObject.GetComponent<PlayerPickup>().Worth;
+            SoundController.GetComponent<SoundController>().playSound(gameObject.tag);
 
-        	if (gameObject.CompareTag("Health"))
+
+
+            if (gameObject.CompareTag("Health"))
 	        {
 	        	PlayerStateManager.GetComponent<PlayerState>().add(Worth, "Health");
             	UIController.GetComponent<UIController>().updateDisplay("Health");
@@ -33,9 +38,9 @@ public class PlayerPickup : MonoBehaviour {
 	        {
 	    		PlayerStateManager.GetComponent<PlayerState>().add(Worth, "Gems");
 	    		UIController.GetComponent<UIController>().updateDisplay("Gems");
-	        }
+            }
 
-         	Destroy(this.gameObject);
+         	Destroy(this.gameObject, 0.05f);
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloneEnemy : MonoBehaviour {
     public GameObject EnemyReference;
     private GameObject Copy;
-    public int spawn_count = 10;
+    public int spawn_count = -1;
 
 	// Use this for initialization
 	void Start () {

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
+    private GameObject GameController;
+    private GameObject SoundController;
     public GameObject PlayerActiveItem;
     private SpriteRenderer sprite;
-    private GameObject GameController;
     private char direction;
     Animator anim;
 
     void Start () {
         GameController = GameObject.Find("GameController");
+        SoundController = GameObject.Find("SoundController");
         anim = GetComponent<Animator>();
         direction = GameController.GetComponent<GameController>().PlayerDirection;
         sprite = PlayerActiveItem.GetComponent<SpriteRenderer>();
@@ -29,6 +31,7 @@ public class PlayerAttack : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space)){
             anim.SetBool("isattacking", true);
+            SoundController.GetComponent<SoundController>().playSound("PlayerSwordAttack");
         }
 
         // If Attack is Held

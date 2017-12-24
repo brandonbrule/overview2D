@@ -6,11 +6,15 @@ public class EnemySpikeMovement : MonoBehaviour {
 	public string type = "horizontal";
 	private string direction = "left";
 	public int speed = 1;
-	
+    private AudioSource AudioCollision;
 
-	// Use this for initialization
-	void Start () {
-		if(type.Equals("horizontal")){
+
+    // Use this for initialization
+    void Start () {
+
+        AudioCollision = this.gameObject.GetComponent<AudioSource>();
+
+        if (type.Equals("horizontal")){
 			direction = "left";
 		}
 
@@ -55,8 +59,9 @@ public class EnemySpikeMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
     {
+        AudioCollision.Play();
 
-    	if(type.Equals("horizontal")){
+        if (type.Equals("horizontal")){
 			if(direction.Equals("left")){
 				direction = "right";
 			} else {

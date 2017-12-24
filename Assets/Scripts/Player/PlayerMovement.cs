@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	private GameObject PlayerStateManager;
 	private GameObject GameController;
-	Rigidbody2D rbody;
+    private GameObject SoundController;
+    Rigidbody2D rbody;
 	Animator anim;
 	public float playerSpeed = 1f;
 	private float originalPlayerSpeed;
@@ -16,14 +17,17 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		PlayerStateManager = GameObject.Find("Player/PlayerStateManager");
 		GameController = GameObject.Find("GameController");
+        SoundController = GameObject.Find("SoundController");
 		rbody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		originalPlayerSpeed = playerSpeed;
 		direction = GameController.GetComponent<GameController>().PlayerDirection;
-		
-		// Set Player Direction on Scene Load
-		// East
-		if (direction == 'e'){
+
+        
+
+        // Set Player Direction on Scene Load
+        // East
+        if (direction == 'e'){
 			anim.SetFloat("input_x", -1);
 			anim.SetFloat("input_y", 0);
 		
@@ -95,13 +99,16 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (movement_vector != Vector2.zero){
 
-			anim.SetBool("iswalking", true);
+            SoundController.GetComponent<SoundController>().playSound("Walking");
+
+            anim.SetBool("iswalking", true);
 			anim.SetFloat("input_x", movement_vector.x);
 			anim.SetFloat("input_y", movement_vector.y);
 			Run();
 			setDirection(movement_vector.x, movement_vector.y);
 		} else {
-			anim.SetBool("iswalking", false);
+            SoundController.GetComponent<SoundController>().stopSound("Walking");
+            anim.SetBool("iswalking", false);
 		}
 
 		rbody.MovePosition(rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );

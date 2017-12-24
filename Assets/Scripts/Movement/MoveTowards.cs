@@ -6,7 +6,7 @@ public class MoveTowards : MonoBehaviour {
     public Transform target;
     public float speed = 1f;
     private int direction = 0;
-    public bool move = false;
+    public bool is_following = false;
     public bool always_follow = false;
 
     // Use this for initialization
@@ -33,9 +33,9 @@ public class MoveTowards : MonoBehaviour {
 	void FixedUpdate() {
         if (always_follow)
         {
-            move = true;
+            is_following = true;
         }
-        if (move)
+        if (is_following)
         {
             float step = speed * Time.deltaTime;
             float target_x = Mathf.Round(target.position.x);
@@ -88,12 +88,12 @@ public class MoveTowards : MonoBehaviour {
     // Stop moving for a moment
     public void ActivateMove()
     {
-        move = true;
+        is_following = true;
     }
 
     public void DectivateMove()
     {
-        move = false;
+        is_following = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -101,7 +101,7 @@ public class MoveTowards : MonoBehaviour {
 
         if (other.tag == "Player" || other.tag == "Enemy")
         {
-            move = false;
+            is_following = false;
         }
     }
 
