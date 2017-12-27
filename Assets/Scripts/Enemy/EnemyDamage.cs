@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
     private GameObject SoundController;
+    private GameObject PlayerStateManager;
+    private GameObject UIController;
+    
     public int damage = 1;
     public int pushback = 0;
-	private GameObject PlayerStateManager;
-    private GameObject UIController;
+	
 
 
 	// Use this for initialization
@@ -24,7 +26,7 @@ public class EnemyDamage : MonoBehaviour {
 
         if( other.gameObject.CompareTag("Player")){
 
-            SoundController.GetComponent<SoundController>().playSound("Damage");
+            SoundController.GetComponent<SoundController>().playSound("PlayerDamaged");
 
             PlayerStateManager.GetComponent<PlayerState>().remove(damage, "Health");
             UIController.GetComponent<UIController>().updateDisplay("Health");

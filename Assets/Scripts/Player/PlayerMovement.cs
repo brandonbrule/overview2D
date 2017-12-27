@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 	private GameObject PlayerStateManager;
 	private GameObject GameController;
     private GameObject SoundController;
-    Rigidbody2D rbody;
-	Animator anim;
+    private Rigidbody2D rbody;
+	private Animator anim;
 	public float playerSpeed = 1f;
 	private float originalPlayerSpeed;
 	public char direction;
@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		originalPlayerSpeed = playerSpeed;
 		direction = GameController.GetComponent<GameController>().PlayerDirection;
-
-        
 
         // Set Player Direction on Scene Load
         // East
@@ -97,21 +95,30 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
 		Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+
+
+        // If Player Is Walking
 		if (movement_vector != Vector2.zero){
-
             SoundController.GetComponent<SoundController>().playSound("Walking");
-
             anim.SetBool("iswalking", true);
 			anim.SetFloat("input_x", movement_vector.x);
 			anim.SetFloat("input_y", movement_vector.y);
 			Run();
 			setDirection(movement_vector.x, movement_vector.y);
+
+        // If Player Stops Walking
 		} else {
             SoundController.GetComponent<SoundController>().stopSound("Walking");
             anim.SetBool("iswalking", false);
 		}
 
-		rbody.MovePosition(rbody.position + ( (movement_vector * Time.deltaTime) * playerSpeed ) );
+
+        // Stop Walking If Attacking
+        if (anim.GetBool("isattacking") == false)
+        {
+            rbody.MovePosition(rbody.position + ((movement_vector * Time.deltaTime) * playerSpeed));
+        }
+            
 		
 	}
 }

@@ -6,12 +6,15 @@ public class SoundController : MonoBehaviour {
     public AudioSource GemsPickup;
     public AudioSource GemsDrop;
     public AudioSource HealthPickup;
+    public AudioSource PlayerDamaged;
     public AudioSource PlayerSwordAttack;
     public AudioSource PlayerSwordCollision;
     public AudioSource Walking;
     public AudioSource PauseGame;
     public AudioSource Damage;
     public AudioSource BackgroundMusic;
+    public AudioSource EnemyDeath;
+    public AudioSource GameOver;
 
     public void stopSound(string tag)
     {
@@ -38,15 +41,7 @@ public class SoundController : MonoBehaviour {
 
     public void playSound(string tag)
     {
-        if(tag == "Gems" && GemsPickup)
-        {
-            GemsPickup.Play();
-        }
-
-        if (tag == "Health" && HealthPickup)
-        {
-            HealthPickup.Play();
-        }
+        
 
         if (tag == "Walking" && Walking)
         {
@@ -57,10 +52,6 @@ public class SoundController : MonoBehaviour {
             
         }
 
-        if (tag == "PauseGame" && PauseGame)
-        {
-            PauseGame.Play();
-        }
 
         if (tag == "Damage" && Damage)
         {
@@ -76,12 +67,44 @@ public class SoundController : MonoBehaviour {
         {
             PlayerSwordCollision.Play();
         }
+        
+        if(tag == "PlayerDamaged" && PlayerDamaged)
+        {
+            PlayerDamaged.Play();
+        }
+
+        if (tag == "Gems" && GemsPickup)
+        {
+            GemsPickup.Play();
+        }
+
+        if (tag == "Health" && HealthPickup)
+        {
+            HealthPickup.Play();
+        }
+
+        if (tag == "EnemyDeath" && EnemyDeath)
+        {
+            EnemyDeath.Play();
+        }
+
+        if (tag == "PauseGame" && PauseGame)
+        {
+            PauseGame.Play();
+        }
+
+        if (tag == "GameOver" && GameOver)
+        {
+            GameOver.Play();
+        }
 
         if (tag == "BackgroundMusic" && BackgroundMusic)
         {
             BackgroundMusic.Play();
         }
+
         
+
 
     }
 	

@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerState : MonoBehaviour {
-	private int Health;
+    private GameObject GameController;
+    private GameObject SoundController;
+    private int Health;
 	private int MaxHealth;
 	private int Gems;
 	private int MaxGems;
 	private string PlayerActiveItem;
-	private GameObject GameController;
+	
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		GameController = GameObject.Find("GameController");
-		Health = GameController.GetComponent<GameController>().Health;
+        SoundController = GameObject.Find("SoundController");
+        Health = GameController.GetComponent<GameController>().Health;
 		MaxHealth = GameController.GetComponent<GameController>().MaxHealth;
 		Gems = GameController.GetComponent<GameController>().Gems;
 		MaxGems = GameController.GetComponent<GameController>().MaxGems;
@@ -67,8 +70,9 @@ public class PlayerState : MonoBehaviour {
 			
 			if(Health <= 0){
 				GameController.GetComponent<GameController>().Health = MaxHealth;
-				SceneManager.LoadScene("overview");
-			}
+                SoundController.GetComponent<SoundController>().playSound("GameOver");
+                SceneManager.LoadScene("overview");
+            }
 
 		}
 

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
-{
+public class EnemyHealth : MonoBehaviour{
+    private GameObject SoundController;
+    public AudioSource AudioSpawn;
     public bool destroyable = true;
     public int health;
     private int damageTaken;
@@ -12,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        SoundController = GameObject.Find("SoundController");
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (destroyable == true && health <= 0)
         {
+            SoundController.GetComponent<SoundController>().playSound("EnemyDeath");
             Destroy(this.gameObject);
         }
     }

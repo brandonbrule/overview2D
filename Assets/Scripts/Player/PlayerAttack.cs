@@ -41,10 +41,8 @@ public class PlayerAttack : MonoBehaviour {
             // Sword in front of you when facing down.
             if(direction == 's'){
                 sprite.sortingOrder = 3;
-            } else if( direction == '-'){
-                sprite.sortingOrder = -1;
             } else {
-                sprite.sortingOrder = 1;
+                sprite.sortingOrder = 2;
             }
 
         // If Attack is Released.    
@@ -57,17 +55,17 @@ public class PlayerAttack : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Chest"))
-        {
-            other.gameObject.SetActive(false);
-        }
-
-        // Retract Attack when with any collission for now.
         if (other.gameObject.CompareTag("Enemy"))
         {
-            PlayerActiveItem.SetActive(false);
-            anim.SetBool("isattacking", false);
+            if (other.GetType() is BoxCollider2D)
+            {
+                Debug.Log(this.gameObject.tag);
+                Debug.Log("Player Attack Detected");
+                anim.SetBool("isattacking", false);
+            }
         }
+
+
             
     }
 }

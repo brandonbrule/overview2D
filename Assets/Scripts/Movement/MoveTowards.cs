@@ -89,7 +89,6 @@ public class MoveTowards : MonoBehaviour {
     public void ActivateMove()
     {
         is_following = true;
-        always_following = true;
     }
 
     public void DectivateMove()
@@ -102,8 +101,10 @@ public class MoveTowards : MonoBehaviour {
 
         if (other.tag == "Player" || other.tag == "Enemy")
         {
-            is_following = false;
-            always_following = false;
+            if (!always_following)
+            {
+                DectivateMove();
+            }
         }
     }
 
