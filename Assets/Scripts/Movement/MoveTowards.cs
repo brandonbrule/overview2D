@@ -7,7 +7,7 @@ public class MoveTowards : MonoBehaviour {
     public float speed = 1f;
     private int direction = 0;
     public bool is_following = false;
-    public bool always_follow = false;
+    public bool always_following = false;
 
     // Use this for initialization
     void Start () {
@@ -31,7 +31,7 @@ public class MoveTowards : MonoBehaviour {
     // Rounded values are for lining up planes more accurately.
     // .1234 != .1235 but 1 == 1 Looks left right up or down.
 	void FixedUpdate() {
-        if (always_follow)
+        if (always_following)
         {
             is_following = true;
         }
@@ -89,6 +89,7 @@ public class MoveTowards : MonoBehaviour {
     public void ActivateMove()
     {
         is_following = true;
+        always_following = true;
     }
 
     public void DectivateMove()
@@ -102,6 +103,7 @@ public class MoveTowards : MonoBehaviour {
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             is_following = false;
+            always_following = false;
         }
     }
 
