@@ -100,14 +100,18 @@ public class PlayerMovement : MonoBehaviour {
         // If Player Is Walking
 		if (movement_vector != Vector2.zero){
             SoundController.GetComponent<SoundController>().playSound("Walking");
-            anim.SetBool("iswalking", true);
-			anim.SetFloat("input_x", movement_vector.x);
-			anim.SetFloat("input_y", movement_vector.y);
-			Run();
-			setDirection(movement_vector.x, movement_vector.y);
 
-        // If Player Stops Walking
-		} else {
+            if (anim.GetBool("isattacking") == false)
+            {
+                anim.SetBool("iswalking", true);
+                anim.SetFloat("input_x", movement_vector.x);
+                anim.SetFloat("input_y", movement_vector.y);
+                setDirection(movement_vector.x, movement_vector.y);
+            }
+            Run();
+
+            // If Player Stops Walking
+        } else {
             SoundController.GetComponent<SoundController>().stopSound("Walking");
             anim.SetBool("iswalking", false);
 		}
