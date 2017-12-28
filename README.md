@@ -9,7 +9,7 @@
 
 [Website and Playable State](http://brandonbrule.com/overview/)
 
-![Walking](http://brandonbrule.com/00/Movement.gif)
+![Walking](http://brandonbrule.com/overview/img/overview/multi-enemies.gif)
 
 ## Setup
 
