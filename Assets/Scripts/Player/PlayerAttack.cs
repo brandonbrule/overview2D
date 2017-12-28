@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour {
             if(direction == 's'){
                 sprite.sortingOrder = 3;
             } else {
-                sprite.sortingOrder = 0;
+                sprite.sortingOrder = 1;
             }
 
         // If Attack is Released.    
