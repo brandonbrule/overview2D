@@ -114,10 +114,12 @@ public class PlayerMovement : MonoBehaviour {
 
 
         // Stop Walking If Attacking
+        /*
         if (anim.GetBool("isattacking") == false)
         {
-           
+            rbody.MovePosition(rbody.position + ((movement_vector * Time.deltaTime) * playerSpeed));
         }
+        */
 
         rbody.MovePosition(rbody.position + ((movement_vector * Time.deltaTime) * playerSpeed));
 
