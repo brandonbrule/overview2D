@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour {
     public AudioSource GemsPickup;
-    public AudioSource GemsDrop;
+    public AudioSource GemsDropped;
     public AudioSource HealthPickup;
     public AudioSource PlayerDamaged;
     public AudioSource PlayerSwordAttack;
@@ -76,6 +76,11 @@ public class SoundController : MonoBehaviour {
         if (tag == "Gems" && GemsPickup)
         {
             GemsPickup.Play();
+        }
+
+        if (tag == "GemsDropped" && GemsDropped)
+        {
+            GemsDropped.Play();
         }
 
         if (tag == "Health" && HealthPickup)

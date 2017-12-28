@@ -57,10 +57,10 @@ public class PlayerAttack : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            // Radius is for Detection
+            // Box Collider for Collisions
             if (other.GetType() is BoxCollider2D)
             {
-                Debug.Log(this.gameObject.tag);
-                Debug.Log("Player Attack Detected");
                 anim.SetBool("isattacking", false);
             }
         }

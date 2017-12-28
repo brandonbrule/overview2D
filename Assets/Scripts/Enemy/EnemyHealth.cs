@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour{
     private GameObject SoundController;
+    private GameObject ReferenceObjects;
     public AudioSource AudioSpawn;
+    private GameObject ItemDropped;
     public bool destroyable = true;
     public int health;
     private int damageTaken;
@@ -14,6 +16,15 @@ public class EnemyHealth : MonoBehaviour{
     void Start()
     {
         SoundController = GameObject.Find("SoundController");
+        ReferenceObjects = GameObject.Find("ReferenceObjects");
+    }
+
+    void ItemDrop()
+    {
+        int RandomItem = Random.Range(0, 3);
+        ItemDropped = Instantiate(ReferenceObjects.transform.GetChild(RandomItem).gameObject, this.gameObject.transform.position, Quaternion.identity);
+        ItemDropped.SetActive(true);
+        SoundController.GetComponent<SoundController>().playSound("GemsDropped");
     }
 
     // Update is called once per frame
@@ -29,6 +40,7 @@ public class EnemyHealth : MonoBehaviour{
         if (destroyable == true && health <= 0)
         {
             SoundController.GetComponent<SoundController>().playSound("EnemyDeath");
+            ItemDrop();
             Destroy(this.gameObject);
         }
     }
