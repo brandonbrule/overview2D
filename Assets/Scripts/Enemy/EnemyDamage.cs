@@ -30,7 +30,6 @@ public class EnemyDamage : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
     {
 
-
         if( other.gameObject.CompareTag("Player")){
 
             SoundController.GetComponent<SoundController>().playSound("PlayerDamaged");
@@ -41,6 +40,18 @@ public class EnemyDamage : MonoBehaviour {
             var force = transform.position - other.transform.position;
             force.Normalize();
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(-force * pushback);
+
+            Invoke("stopPushback", 0.05f);
+        }
+
+        if (other.gameObject.CompareTag("Shield"))
+        {
+
+            SoundController.GetComponent<SoundController>().playSound("PlayerSwordCollision");
+
+            var force = transform.position - other.transform.position;
+            force.Normalize();
+            Player.GetComponent<Rigidbody2D>().AddForce(-force * 1000);
 
             Invoke("stopPushback", 0.05f);
         }
