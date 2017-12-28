@@ -69,7 +69,7 @@ public class PlayerState : MonoBehaviour {
 			GameController.GetComponent<GameController>().Health = Health;
 			
 			if(Health <= 0){
-				GameController.GetComponent<GameController>().Health = MaxHealth;
+				GameController.GetComponent<GameController>().Health = MaxHealth / 3;
                 SoundController.GetComponent<SoundController>().playSound("GameOver");
                 SceneManager.LoadScene("overview");
             }
