@@ -7,6 +7,7 @@ public class EnemyDamage : MonoBehaviour {
     private GameObject PlayerStateManager;
     private GameObject UIController;
     private GameObject Player;
+    public float shieldStunTime = 0;
     
     public int damage = 1;
     public int pushback = 0;
@@ -51,7 +52,7 @@ public class EnemyDamage : MonoBehaviour {
 
             var force = transform.position - other.transform.position;
             force.Normalize();
-            Player.GetComponent<Rigidbody2D>().AddForce(-force * 1000);
+            Player.GetComponent<Rigidbody2D>().AddForce(-force * 500);
 
             Invoke("stopPushback", 0.05f);
         }

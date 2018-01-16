@@ -81,12 +81,18 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
-	void Run(){
-		// Run (Shift)
-        if (Input.GetKey(KeyCode.LeftShift))
+    void MovementConditions() {
+
+        if (anim.GetBool("isattacking"))
         {
-            playerSpeed = 2;
-        } else {
+            playerSpeed = originalPlayerSpeed / 2;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) || anim.GetBool("isattacking"))
+        {
+            playerSpeed = originalPlayerSpeed / 2;
+        }
+        else
+        {
         	playerSpeed = originalPlayerSpeed;
         }
 	}
@@ -98,6 +104,7 @@ public class PlayerMovement : MonoBehaviour {
         // If Player Is Walking
 		if (movement_vector != Vector2.zero){
             SoundController.GetComponent<SoundController>().playSound("Walking");
+            MovementConditions();
 
             if (anim.GetBool("isattacking") == false)
             {
@@ -105,10 +112,6 @@ public class PlayerMovement : MonoBehaviour {
                 anim.SetFloat("input_x", movement_vector.x);
                 anim.SetFloat("input_y", movement_vector.y);
                 setDirection(movement_vector.x, movement_vector.y);
-                Run();
-            } else
-            {
-                playerSpeed = originalPlayerSpeed;
             }
             
 

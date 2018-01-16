@@ -39,7 +39,8 @@ public class PlayerAttack : MonoBehaviour {
         { 
             direction = GameController.GetComponent<GameController>().PlayerDirection;
             // Sword in front of you when facing down.
-            if(direction == 's'){
+            if(direction == 's' || direction == 'e')
+            {
                 sprite.sortingOrder = 3;
             } else {
                 sprite.sortingOrder = 1;
