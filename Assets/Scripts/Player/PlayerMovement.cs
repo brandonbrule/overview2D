@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float playerSpeed = 1f;
 	private float originalPlayerSpeed;
 	public char direction;
+    private char last_direction;
 
 
 	// Use this for initialization
@@ -43,9 +44,13 @@ public class PlayerMovement : MonoBehaviour {
 		} else {
 			anim.SetFloat("input_x", 0);
 			anim.SetFloat("input_y", -1);
-		}
-		
-	}
+        }
+
+
+        
+
+
+    }
 
 	void setDirection(float x, float y){
 		char newDirection = 'a';
@@ -81,26 +86,53 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
+    void sprint()
+    {
+        if(last_direction == direction)
+        {
+            Debug.Log("Same Direction");
+        }
+        last_direction = direction;
+    }
+
     void MovementConditions() {
 
         if (anim.GetBool("isattacking"))
         {
-            playerSpeed = originalPlayerSpeed / 2;
+            //playerSpeed = originalPlayerSpeed / 2;
         }
         if (Input.GetKey(KeyCode.LeftShift) || anim.GetBool("isattacking"))
         {
-            playerSpeed = originalPlayerSpeed / 2;
+            //playerSpeed = originalPlayerSpeed / 2;
         }
         else
         {
         	playerSpeed = originalPlayerSpeed;
+            //sprint();
         }
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate() {
 		Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var force = transform.position;
 
+       
+
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                rbody.AddRelativeForce(Vector3.forward * 100.0f);
+                rbody.AddForce(transform.up * 100.0f);
+                sprint();
+                //this.gameObject.GetComponent<Rigidbody2D>().AddForce(force * 100);
+                Debug.Log("A key or mouse click has been detected");
+            }
+           
+        }
+        
+        
         // If Player Is Walking
 		if (movement_vector != Vector2.zero){
             SoundController.GetComponent<SoundController>().playSound("Walking");
